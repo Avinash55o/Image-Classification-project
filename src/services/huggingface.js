@@ -19,6 +19,4 @@ export const classifyImage= async(imagefile)=>{
     } 
 };
 
-
-
 console.log(output);
