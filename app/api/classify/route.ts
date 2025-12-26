@@ -1,7 +1,7 @@
 import { classifyImage } from "@/services/huggingface";
 import { NextResponse } from "next/server";
 
-export async function Get(req: Request) {
+export async function POST(req: Request) {
     try {
         const formData = await req.formData();
         const image = formData.get("image");
