@@ -4,10 +4,8 @@ const client = new InferenceClient(process.env.HF_TOKEN!);
 
 export async function classifyImage(imageFile: File) {
     try {
-        const imageBuffer = await imageFile.arrayBuffer();
-
         const output = await client.imageClassification({
-            data: imageBuffer,
+            data: imageFile,
             model: "google/vit-base-patch16-384",
         });
 

@@ -16,9 +16,12 @@ export async function POST(req: Request) {
         const result = await classifyImage(image);
 
         return NextResponse.json({ result });
-    } catch (error) {
+    } catch (error:any) {
+        console.error("full error", error)
         return NextResponse.json(
-            { error: "Classification failed" },
+            { error: error?.message || "unknown error",
+              stack: error?.stack,
+            },
             { status: 500 }
         );
     }
